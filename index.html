@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrinceKing — TO-LET Buy / Sell / Organizer</title>
+<title>PrinceKing Property — TO-LET Buy / Sell / Organizer</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap');
 
@@ -78,48 +78,88 @@
     text-stroke:2px var(--paper);
   }
 
-  .hero-sub{
+  .hero-brand-sub{
     font-family:'Barlow Condensed', sans-serif;
-    font-weight:600;
-    font-size:clamp(1.3rem, 5.5vw, 1.7rem);
-    letter-spacing:0.04em;
-    margin-top:0.9rem;
-    color:var(--paper);
+    font-weight:700;
+    font-size:clamp(1rem, 4.2vw, 1.3rem);
+    letter-spacing:0.42em;
+    color:var(--gold);
+    margin-top:0.3rem;
   }
 
-  .hero-sub em{
-    font-style:normal;
-    color:var(--stamp);
-  }
-
-  .hero-numbers{
-    margin-top:1.8rem;
+  /* ---------- STICKER CARD ---------- */
+  .sticker-wrap{
     display:flex;
-    gap:0.9rem;
-    flex-wrap:wrap;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    padding:1.6rem 1.4rem 0.4rem;
+    background:var(--paper);
   }
 
-  .num-pill{
+  .sticker-card{
+    background:#fdfbf6;
+    border:1px solid rgba(28,27,25,0.12);
+    box-shadow:0 6px 16px rgba(28,27,25,0.15);
+    padding:1.1rem 1.3rem;
+    max-width:420px;
+    width:100%;
+    transform:rotate(-1deg);
+  }
+
+  .sticker-line{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.02em;
+    text-align:center;
+    padding:0.42rem 0;
+    font-size:clamp(1.15rem, 5.5vw, 1.55rem);
+    border-bottom:1.5px solid rgba(28,27,25,0.18);
+  }
+
+  .sticker-line:last-child{border-bottom:none;}
+
+  .sticker-tolet{color:var(--stamp); font-style:italic; font-size:clamp(1.4rem, 6.5vw, 1.9rem);}
+  .sticker-pg{color:#1e3a6b;}
+  .sticker-rooms{color:#231f1c;}
+  .sticker-shops{color:#5a1f22;}
+
+  .sticker-actions{
+    display:flex;
+    gap:0.7rem;
+    width:100%;
+    max-width:420px;
+  }
+
+  .sticker-btn{
+    flex:1;
     display:flex;
     align-items:center;
-    gap:0.5rem;
-    background:rgba(242,237,226,0.08);
-    border:1px solid rgba(242,237,226,0.25);
-    padding:0.5rem 0.9rem;
-    border-radius:2px;
-    font-family:'Barlow Condensed', sans-serif;
-    font-size:1.05rem;
-    font-weight:600;
-    letter-spacing:0.03em;
-    color:var(--paper);
+    justify-content:center;
+    gap:0.4rem;
+    padding:0.65rem 0.4rem;
+    border-radius:3px;
     text-decoration:none;
-    transition:background 0.15s ease;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    letter-spacing:0.02em;
+    color:var(--paper);
+    background:var(--ink);
+    border:1px solid rgba(28,27,25,0.15);
+    transition:filter 0.15s ease;
   }
 
-  .num-pill:hover{background:rgba(242,237,226,0.16);}
-  .num-pill:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .sticker-btn svg{width:17px; height:17px; flex-shrink:0;}
 
-  .num-pill svg{width:16px; height:16px; flex-shrink:0; fill:var(--gold);}
+  .sticker-btn:hover{filter:brightness(1.15);}
+  .sticker-btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  .sb-call svg{fill:var(--gold);}
+  .sb-whatsapp{background:var(--whatsapp);}
+  .sb-whatsapp svg{fill:var(--paper);}
+  .sb-telegram{background:var(--telegram);}
+  .sb-telegram svg{fill:var(--paper);}
 
   /* ---------- CATEGORY LIST ---------- */
   .listings{
@@ -302,110 +342,7 @@
     color:rgba(242,237,226,0.5);
   }
 
-  /* ---------- CALLBACK FORM ---------- */
-  .callback{
-    background:var(--ink);
-    color:var(--paper);
-    padding:2.6rem 1.4rem 3rem;
-  }
-
-  .callback-inner{max-width:640px; margin:0 auto;}
-
-  .callback h2{
-    font-family:'Archivo Black', sans-serif;
-    font-size:clamp(1.5rem, 6vw, 2rem);
-    margin-bottom:0.5rem;
-  }
-
-  .callback p{
-    color:rgba(242,237,226,0.7);
-    margin-bottom:1.6rem;
-    font-size:1rem;
-  }
-
-  .field{margin-bottom:1.1rem;}
-
-  .field label{
-    display:block;
-    font-family:'Barlow Condensed', sans-serif;
-    font-weight:600;
-    letter-spacing:0.05em;
-    font-size:0.85rem;
-    color:var(--gold);
-    margin-bottom:0.4rem;
-  }
-
-  .field input,
-  .field select,
-  .field textarea{
-    width:100%;
-    background:rgba(242,237,226,0.06);
-    border:1px solid rgba(242,237,226,0.3);
-    color:var(--paper);
-    padding:0.75rem 0.85rem;
-    font-family:'Barlow', sans-serif;
-    font-size:1rem;
-    border-radius:2px;
-  }
-
-  .field select{
-    appearance:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23f2ede2' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;
-    background-position:right 0.85rem center;
-  }
-
-  .field textarea{resize:vertical; min-height:80px;}
-
-  .field input::placeholder,
-  .field textarea::placeholder{color:rgba(242,237,226,0.4);}
-
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus{
-    outline:2px solid var(--stamp);
-    outline-offset:1px;
-    background:rgba(242,237,226,0.1);
-  }
-
-  .submit-btn{
-    width:100%;
-    background:var(--stamp);
-    color:var(--paper);
-    border:none;
-    padding:0.95rem;
-    font-family:'Barlow Condensed', sans-serif;
-    font-weight:600;
-    font-size:1.15rem;
-    letter-spacing:0.03em;
-    border-radius:2px;
-    cursor:pointer;
-    transition:background 0.15s ease;
-  }
-
-  .submit-btn:hover{background:var(--stamp-dark);}
-  .submit-btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
-
-  .form-note{
-    margin-top:0.9rem;
-    font-size:0.85rem;
-    color:rgba(242,237,226,0.5);
-  }
-
-  .form-success{
-    display:none;
-    background:rgba(63,174,90,0.15);
-    border:1px solid var(--whatsapp);
-    color:var(--paper);
-    padding:0.9rem 1rem;
-    border-radius:2px;
-    font-size:0.95rem;
-    margin-top:1rem;
-  }
-
-  .form-success.show{display:block;}
-
-  /* ---------- FOOTER ---------- */
+  /* ---------- STICKER CARD ---------- */
   footer{
     text-align:center;
     padding:1.6rem 1.4rem 2rem;
@@ -425,8 +362,7 @@
     z-index:50;
   }
 
-  .contact-bar a,
-  .contact-bar button{
+  .contact-bar a{
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -445,23 +381,20 @@
     border-right:1px solid rgba(242,237,226,0.12);
   }
 
-  .contact-bar a:last-child,
-  .contact-bar button:last-child{border-right:none;}
+  .contact-bar a:last-child{border-right:none;}
 
   .contact-bar svg{width:22px; height:22px;}
 
   .contact-bar .cb-call svg{fill:var(--gold);}
   .contact-bar .cb-whatsapp svg{fill:var(--whatsapp);}
   .contact-bar .cb-telegram svg{fill:var(--telegram);}
-  .contact-bar .cb-form svg{fill:var(--stamp);}
 
-  .contact-bar a:active,
-  .contact-bar button:active{background:rgba(242,237,226,0.08);}
+  .contact-bar a:active{background:rgba(242,237,226,0.08);}
 
   @media (min-width:640px){
     .hero{padding:3.4rem 2rem 3.6rem;}
     .listings, .steps{padding-left:2rem; padding-right:2rem;}
-    .strip, .callback{padding-left:2rem; padding-right:2rem;}
+    .strip{padding-left:2rem; padding-right:2rem;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -476,19 +409,33 @@
     <div class="hero-inner">
       <div class="hero-tag">TO-LET · BUY · SELL · ORGANIZER</div>
       <h1>PRINCE<span>KING</span></h1>
-      <p class="hero-sub">Rooms, flats, PGs and <em>more</em> — sorted, fast.</p>
-      <div class="hero-numbers">
-        <a class="num-pill" href="tel:+919592393270">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
-          95923-93270
-        </a>
-        <a class="num-pill" href="tel:+919041153111">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
-          90411-53111
-        </a>
-      </div>
+      <div class="hero-brand-sub">PROPERTY</div>
     </div>
   </header>
+
+  <!-- STICKER CARD -->
+  <section class="sticker-wrap">
+    <div class="sticker-actions">
+      <a class="sticker-btn sb-call" href="tel:+919592393270">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+        Call
+      </a>
+      <a class="sticker-btn sb-whatsapp" href="https://wa.me/919592393270" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></svg>
+        WhatsApp
+      </a>
+      <a class="sticker-btn sb-telegram" href="https://t.me/+919592393270" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21.9 4.3c-.2-.2-.5-.2-.7-.1L2.7 11.3c-.5.2-.5.9.1 1.1l4.4 1.4 1.7 5.5c.1.4.6.5.9.2l2.5-2.4 4.6 3.4c.4.3.9.1 1-.4l3.9-14.4c.1-.2 0-.4-.1-.5zM9 14.5l-.5 3.3-1.1-3.6 9.9-6.2z"/></svg>
+        Telegram
+      </a>
+    </div>
+    <div class="sticker-card">
+      <div class="sticker-line sticker-tolet">TO-LET / LEASE</div>
+      <div class="sticker-line sticker-pg">PG - BOYS / GIRLS</div>
+      <div class="sticker-line sticker-rooms">ROOMS / FLATS</div>
+      <div class="sticker-line sticker-shops">SHOPS / CABINS</div>
+    </div>
+  </section>
 
   <!-- CATEGORY LISTING -->
   <section class="listings">
@@ -510,23 +457,6 @@
     </div>
   </section>
 
-
- <!-- LOCATION -->
-  <section class="location">
-    <h2>Visit us</h2>
-    <a class="location-card" href="https://www.google.com/maps/search/?api=1&query=Jama+Masjid+Phase+11+Sector+65+Mohali" target="_blank" rel="noopener">
-      <span class="location-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.6 7 11.5 7.3 11.8.2.1.4.2.7.2s.5-.1.7-.2C13 21.5 20 15.6 20 10c0-4.4-3.6-8-8-8zm0 10.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 7.5 12 7.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>
-      </span>
-      <span class="location-text">
-        <span class="location-addr">Jama Masjid, Phase 11, Sector 65, Mohali</span>
-        <span class="location-cta">Open in Google Maps</span>
-      </span>
-      <span class="location-arrow">›</span>
-    </a>
-  </section>
-
-
   <!-- STRIP -->
   <section class="strip">
     <div class="strip-inner">
@@ -534,8 +464,8 @@
       <p>Buying, selling, or renting — we handle the search, the visits, and the paperwork so you don't have to run around the city for it.</p>
     </div>
   </section>
- 
-<!-- HOW IT WORKS -->
+
+  <!-- HOW IT WORKS -->
   <section class="steps">
     <h2>How it works</h2>
     <div class="step">
@@ -561,9 +491,25 @@
     </div>
   </section>
 
+  <!-- LOCATION -->
+  <section class="location">
+    <h2>Visit us</h2>
+    <a class="location-card" href="https://www.google.com/maps/search/?api=1&query=Jama+Masjid+Phase+11+Sector+65+Mohali" target="_blank" rel="noopener">
+      <span class="location-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.6 7 11.5 7.3 11.8.2.1.4.2.7.2s.5-.1.7-.2C13 21.5 20 15.6 20 10c0-4.4-3.6-8-8-8zm0 10.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 7.5 12 7.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>
+      </span>
+      <span class="location-text">
+        <span class="location-addr">Jama Masjid, Phase 11, Sector 65, Mohali</span>
+        <span class="location-cta">Open in Google Maps</span>
+      </span>
+      <span class="location-arrow">›</span>
+    </a>
+  </section>
+
+  <!-- CALLBACK FORM -->
 
   <footer>
-    PrinceKing · TO-LET · Buy / Sell / Organizer · 95923-93270 · 90411-53111
+    PrinceKing Property · TO-LET · Buy / Sell / Organizer · 95923-93270 · 90411-53111
   </footer>
 
   <!-- STICKY CONTACT BAR -->
